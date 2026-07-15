@@ -70,7 +70,7 @@ export default function Invest() {
             
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-slate-200/20 bg-slate-900 shadow-2xl lg:aspect-[3/4]">
               <Image
-                src="/commonImages/invest.webp"
+                src="/commonImages/invettt.png"
                 alt="Premium commercial real estate architecture asset modeling"
                 fill
                 sizes="(max-width: 1024px) 100vw, 450px"
