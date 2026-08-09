@@ -7,7 +7,7 @@ import { PROPERTIES_DB } from '@/data/db'
 
 export default function Footer() {
   // Extract active project links dynamically from our central schema
-  const assetLinks = PROPERTIES_DB.map(p => ({ name: p.name, href: `/properties/${p.id}` }))
+  const assetLinks = PROPERTIES_DB.map(p => ({ name: p.name, href: `/buy/${p.id}` }))
 
   return (
     <footer className="bg-slate-900 text-slate-400 border-t border-slate-800" id="global-footer">
@@ -42,7 +42,7 @@ export default function Footer() {
             <h3 className="text-xs font-bold uppercase tracking-widest text-white font-mono">
               Asset Portfolios
             </h3>
-            <ul role="list" className="mt-4 space-y-2.5">
+            <ul role="list" className="mt-4 space-y-3">
               {assetLinks.slice(0, 4).map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-sm hover:text-white transition-colors duration-200 block truncate">
@@ -58,7 +58,7 @@ export default function Footer() {
             <h3 className="text-xs font-bold uppercase tracking-widest text-white font-mono">
               Corporate Desk
             </h3>
-            <ul role="list" className="mt-4 space-y-2.5">
+            <ul role="list" className="mt-4 space-y-3">
               {[
                 { name: 'Corporate Profile', href: '/about' },
                 { name: 'Asset Catalog', href: '/buy' },
@@ -82,30 +82,30 @@ export default function Footer() {
             <ul role="list" className="space-y-4 text-xs leading-relaxed">
               
               {/* HQ Desk */}
-              <li className="flex items-start gap-2.5 border-b border-slate-800/60 pb-3">
+              <li className="flex items-start gap-3 border-b border-slate-800/60 pb-3">
                 <span className="text-blue-500 font-bold font-mono uppercase shrink-0">MAIN HQ:</span>
                 <span className="text-slate-300">GF-1 Ekta Raj Arcade Complex, Shastripuram, Agra, UP</span>
               </li>
 
               {/* Branch 2 Desk */}
-              <li className="flex items-start gap-2.5 border-b border-slate-800/60 pb-3">
+              <li className="flex items-start gap-3 border-b border-slate-800/60 pb-3">
                 <span className="text-blue-500 font-bold font-mono uppercase shrink-0">ZONE 02:</span>
                 <span className="text-slate-300">First Floor, Block 94, Sanjay Place, Civil Lines, Agra (Near St. Patricks School)</span>
               </li>
 
               {/* Alternate/Vrindavan Base Contact Node */}
-              <li className="flex items-start gap-2.5 pb-2">
+              <li className="flex items-start gap-3 pb-2">
                 <span className="text-slate-500 font-bold font-mono uppercase shrink-0">VRINDAVAN:</span>
                 <span className="text-slate-400">A6, Shri Radha Florence, Rukmini Vihar, Vrindavan</span>
               </li>
 
               {/* Audio Pipelines & Communications Contact Channels */}
               <li className="pt-2 flex flex-wrap gap-x-6 gap-y-2 text-sm border-t border-slate-800/80">
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-2">
                   <span className="text-xs text-slate-500 font-mono uppercase">Desk 1:</span>
                   <a href="tel:+917055848887" className="font-semibold text-slate-300 hover:text-white transition-colors font-mono">+91 70558 48887</a>
                 </div>
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-2">
                   <span className="text-xs text-slate-500 font-mono uppercase">Desk 2:</span>
                   <a href="tel:+918218707339" className="font-semibold text-slate-300 hover:text-white transition-colors font-mono">+91 82187 07339</a>
                 </div>

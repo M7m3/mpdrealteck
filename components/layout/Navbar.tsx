@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: 'About', href: '/about' },
   { label: 'Sell Property', href: '/sell' },
   { label: 'Buy Property', href: '/buy' },
+  { label: 'Corporate Leasing', href: '/corporate-leasing' },
   { label: 'Contact Us', href: '/contact' },
 ]
 
@@ -55,9 +56,11 @@ export default function Navbar() {
               
               {/* CTA Blueprint Component from agents.md */}
               <div className="flex items-center border-l border-slate-200 pl-8">
-                <button className="rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:shadow-lg active:scale-[0.98]">
-                  Get Started
-                </button>
+                <Link href="/contact">
+                  <button className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:shadow-lg active:scale-[0.98]">
+                    Get Started
+                  </button>
+                </Link>
               </div>
             </div>
 

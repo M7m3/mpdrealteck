@@ -15,7 +15,7 @@ export default function AboutSection() {
         {/* Upper Layout: The 40-Year Creed */}
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-20 items-center">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-1.5 rounded-md bg-blue-50 border border-blue-100 px-3 py-1">
+            <div className="inline-flex items-center gap-2 rounded-md bg-blue-50 border border-blue-100 px-3 py-1">
               <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
               <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
                 Four Decades of Veracity
@@ -36,7 +36,7 @@ export default function AboutSection() {
               <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md">
                 <span className="text-xs font-bold font-mono text-blue-600 bg-blue-50 px-2 py-1 rounded">1986 – ORIGIN</span>
                 <h4 className="mt-3 text-base font-bold text-slate-900 tracking-tight">Absolute Title Integrity</h4>
-                <p className="mt-1.5 text-xs leading-relaxed text-slate-600">
+                <p className="mt-2 text-xs leading-relaxed text-slate-600">
                   Every dealing is subjected to ruthless verification pipelines, confirming historical lineage before formal handovers.
                 </p>
               </div>
@@ -44,7 +44,7 @@ export default function AboutSection() {
               <div className="rounded-xl border border-slate-800 bg-slate-900 p-6 shadow-md transition-all duration-300 hover:bg-slate-950">
                 <span className="text-xs font-bold font-mono text-blue-400 bg-slate-800 px-2 py-1 rounded">PERMANENCE</span>
                 <h4 className="mt-3 text-base font-bold text-white tracking-tight">Zero Advisory Posturing</h4>
-                <p className="mt-1.5 text-xs leading-relaxed text-slate-400">
+                <p className="mt-2 text-xs leading-relaxed text-slate-400">
                   We are market principles and operators. We do not offer passing speculations—we defend clear, uncompromised real transactions.
                 </p>
               </div>

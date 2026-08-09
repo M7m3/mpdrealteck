@@ -43,7 +43,7 @@ export default function PropertyAll() {
                     
                     {/* Absolute Overlays matching compliance registries */}
                     <div className="absolute inset-x-3 top-3 flex items-center justify-between pointer-events-none">
-                      <span className="rounded bg-slate-900/90 border border-white/10 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md">
+                      <span className="rounded bg-slate-900/90 border border-white/10 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md">
                         {asset.projectTimeline?.status || "Verified Real Estate"}
                       </span>
                     </div>
@@ -53,7 +53,7 @@ export default function PropertyAll() {
 
                   {/* Core Description Layers */}
                   <div className="mt-6">
-                    <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-600">
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-600">
                       <svg className="h-4 w-4 text-blue-500 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
@@ -76,14 +76,14 @@ export default function PropertyAll() {
                 </div>
 
                 {/* Technical Micro Spec Metrics Board */}
-                <div className="mt-6 border-t border-b border-slate-100 py-3.5 my-1 text-xs text-slate-500 font-semibold grid grid-cols-2 gap-2">
-                  <div className="flex items-center gap-1.5">
+                <div className="mt-6 border-t border-b border-slate-100 py-4 my-1 text-xs text-slate-500 font-semibold grid grid-cols-2 gap-2">
+                  <div className="flex items-center gap-2">
                     <svg className="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v16.5m16.5-16.5v16.5M3.75 12h16.5M5.625 5.625h12.75M5.625 18.375h12.75" />
                     </svg>
                     <span className="truncate">{asset.geometry?.projectSize || "Verified Plot"}</span>
                   </div>
-                  <div className="flex items-center gap-1.5 justify-end text-emerald-600">
+                  <div className="flex items-center gap-2 justify-end text-emerald-600">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                     <span className="text-[11px] uppercase tracking-wider font-bold">Registry Ready</span>
                   </div>

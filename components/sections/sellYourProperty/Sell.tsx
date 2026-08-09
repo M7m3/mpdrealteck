@@ -14,10 +14,14 @@ export default function SellPropertyPage() {
     location: '',
   })
 
+  const [submitted, setSubmitted] = useState(false)
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // Handle submission workflow
     console.log('Submission target initialized:', formData)
+    setSubmitted(true)
+    setFormData({ fullName: '', email: '', phone: '', propertyType: 'Residential', expectedPrice: '', location: '' })
   }
 
   return (
@@ -59,7 +63,7 @@ export default function SellPropertyPage() {
                 src="/commonImages/sell.jpg"
                 alt="Premium Corporate Architecture Real Estate Asset Placement Showcase"
                 fill
-                sizes="(max-w-1024px) 100vw, 50vw"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-center"
                 priority
               />
@@ -121,11 +125,11 @@ export default function SellPropertyPage() {
       </section>
 
       {/* 3. Valuation Form & Elite Context Split */}
-      <section id="valuation-form" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-200">
+      <section id="valuation-form" className="scroll-mt-24 md:scroll-mt-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-200">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* Informational Context (Left) */}
-          <div id="agent-advisory" className="lg:col-span-5 space-y-6">
+          <div id="agent-advisory" className="scroll-mt-24 md:scroll-mt-32 lg:col-span-5 space-y-6">
             <h3 className="text-3xl font-bold tracking-tight text-slate-900">
               Connect Directly with Senior Portfolio Advising Specialists
             </h3>
@@ -142,7 +146,7 @@ export default function SellPropertyPage() {
                 </div>
                 <div>
                   <h5 className="text-sm font-semibold text-slate-900">Direct Brokerage Assignment</h5>
-                  <p className="text-xs text-slate-600 mt-0.5">Your property file maps onto a local executive expert holding specific geographic authority clearances.</p>
+                  <p className="text-xs text-slate-600 mt-1">Your property file maps onto a local executive expert holding specific geographic authority clearances.</p>
                 </div>
               </div>
               
@@ -154,7 +158,7 @@ export default function SellPropertyPage() {
                 </div>
                 <div>
                   <h5 className="text-sm font-semibold text-slate-900">Targeted Marketing Matrices</h5>
-                  <p className="text-xs text-slate-600 mt-0.5">We design specialized collateral packages targeting corporate trusts, private equities, and retail funds.</p>
+                  <p className="text-xs text-slate-600 mt-1">We design specialized collateral packages targeting corporate trusts, private equities, and retail funds.</p>
                 </div>
               </div>
             </div>
@@ -164,27 +168,39 @@ export default function SellPropertyPage() {
           <div className="lg:col-span-7">
             <div className="rounded-xl border border-slate-200/60 bg-white p-8 shadow-sm">
               <h4 className="text-xl font-bold text-slate-900 tracking-tight mb-6">Initialize Listing Intake Profile</h4>
-              
+
+              {submitted && (
+                <div className="mb-6 flex items-start gap-3 rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+                  <svg className="h-5 w-5 shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                  <div>
+                    <p className="text-sm font-bold text-emerald-800">Listing intake submitted successfully</p>
+                    <p className="mt-1 text-xs text-emerald-700">A senior portfolio advisor will reach out within 12 hours.</p>
+                  </div>
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-1.5 font-mono">Full Legal Name</label>
+                    <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-2 font-mono">Full Legal Name</label>
                     <input 
                       type="text" 
                       required
                       placeholder="e.g., Mandeep Singh"
-                      className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
+                      className="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
                       value={formData.fullName}
                       onChange={(e) => setFormData({...formData, fullName: e.target.value})}
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-1.5 font-mono">Corporate Email Address</label>
+                    <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-2 font-mono">Corporate Email Address</label>
                     <input 
                       type="email" 
                       required
                       placeholder="name@enterprise.com"
-                      className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
+                      className="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                     />
@@ -193,20 +209,20 @@ export default function SellPropertyPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-1.5 font-mono">Contact Phone Number</label>
+                    <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-2 font-mono">Contact Phone Number</label>
                     <input 
                       type="tel" 
                       required
                       placeholder="+91 XXXXX XXXXX"
-                      className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
+                      className="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-1.5 font-mono">Asset Structural Class</label>
+                    <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-2 font-mono">Asset Structural Class</label>
                     <select 
-                      className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm bg-white outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600 text-slate-700"
+                      className="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm bg-white outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600 text-slate-700"
                       value={formData.propertyType}
                       onChange={(e) => setFormData({...formData, propertyType: e.target.value})}
                     >
@@ -220,23 +236,23 @@ export default function SellPropertyPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-1.5 font-mono">Geographic Location</label>
+                    <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-2 font-mono">Geographic Location</label>
                     <input 
                       type="text" 
                       required
                       placeholder="e.g., Agra, Uttar Pradesh"
-                      className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
+                      className="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
                       value={formData.location}
                       onChange={(e) => setFormData({...formData, location: e.target.value})}
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-1.5 font-mono">Target Valuation Target</label>
+                    <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-2 font-mono">Target Valuation Target</label>
                     <input 
                       type="text" 
                       required
                       placeholder="e.g., ₹2.5 Crores / Price Range"
-                      className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
+                      className="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
                       value={formData.expectedPrice}
                       onChange={(e) => setFormData({...formData, expectedPrice: e.target.value})}
                     />
@@ -244,7 +260,7 @@ export default function SellPropertyPage() {
                 </div>
 
                 <div className="pt-2">
-                  <button type="submit" className="w-full text-center rounded-lg bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:shadow-lg active:scale-[0.98]">
+                  <button type="submit" className="w-full text-center rounded-lg bg-blue-600 px-6 py-4 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:shadow-lg active:scale-[0.98]">
                     Securely File Intake Record
                   </button>
                   <p className="text-center text-[10px] text-slate-400 uppercase tracking-widest mt-3 font-mono">

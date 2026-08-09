@@ -9,10 +9,13 @@ export default function ContactInterface() {
     subject: 'Asset Acquisition',
     message: ''
   })
+  const [submitted, setSubmitted] = useState(false)
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault()
     console.log('Routing communications channel initiated:', formData)
+    setSubmitted(true)
+    setFormData({ name: '', email: '', subject: 'Asset Acquisition', message: '' })
   }
 
   return (
@@ -77,7 +80,7 @@ export default function ContactInterface() {
               
               {/* HQ */}
               <div className="rounded-xl border border-slate-200/60 bg-white p-5 shadow-sm">
-                <div className="flex items-start gap-3.5">
+                <div className="flex items-start gap-4">
                   <div className="mt-1 h-5 w-5 text-blue-600 shrink-0">
                     <svg fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -96,7 +99,7 @@ export default function ContactInterface() {
 
               {/* Branch 2 */}
               <div className="rounded-xl border border-slate-200/60 bg-white p-5 shadow-sm">
-                <div className="flex items-start gap-3.5">
+                <div className="flex items-start gap-4">
                   <div className="mt-1 h-5 w-5 text-blue-600 shrink-0">
                     <svg fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-10.5h16.5M2.25 5.25h19.5m-18 10.5h16.5" />
@@ -108,7 +111,7 @@ export default function ContactInterface() {
                       First floor, Block 94, Sanjay Place,<br />
                       Civil Lines, Agra, UP
                     </p>
-                    <span className="inline-block mt-2 text-xs bg-slate-100 rounded-md px-2 py-0.5 font-semibold text-slate-600 border border-slate-200">
+                    <span className="inline-block mt-2 text-xs bg-slate-100 rounded-md px-2 py-1 font-semibold text-slate-600 border border-slate-200">
                       Locality Anchor: Near St. Patricks School
                     </span>
                   </div>
@@ -122,36 +125,48 @@ export default function ContactInterface() {
           <div className="lg:col-span-7">
             <div className="rounded-xl border border-slate-200/60 bg-white p-8 shadow-sm">
               <h3 className="text-xl font-bold text-slate-900 tracking-tight mb-6">Initialize Structured Correspondence</h3>
-              
+
+              {submitted && (
+                <div className="mb-6 flex items-start gap-3 rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+                  <svg className="h-5 w-5 shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                  <div>
+                    <p className="text-sm font-bold text-emerald-800">Message dispatched successfully</p>
+                    <p className="mt-1 text-xs text-emerald-700">A member of our brokerage desk will respond within 24 hours.</p>
+                  </div>
+                </div>
+              )}
+
               <form onSubmit={handleSendMessage} className="space-y-5">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-1.5 font-mono">Principal Representative Name</label>
+                  <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-2 font-mono">Principal Representative Name</label>
                   <input 
                     type="text" 
                     required
                     placeholder="e.g., Mandeep Singh"
-                    className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
+                    className="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-1.5 font-mono">Secure Return Email Address</label>
+                  <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-2 font-mono">Secure Return Email Address</label>
                   <input 
                     type="email" 
                     required
                     placeholder="representative@firm.com"
-                    className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
+                    className="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-1.5 font-mono">Primary Matter Classification</label>
+                  <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-2 font-mono">Primary Matter Classification</label>
                   <select 
-                    className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm bg-white outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600 text-slate-700 font-medium"
+                    className="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm bg-white outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600 text-slate-700 font-medium"
                     value={formData.subject}
                     onChange={(e) => setFormData({...formData, subject: e.target.value})}
                   >
@@ -163,19 +178,19 @@ export default function ContactInterface() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-1.5 font-mono">Brief Statement of Intent</label>
+                  <label className="block text-xs font-bold uppercase tracking-wide text-slate-500 mb-2 font-mono">Brief Statement of Intent</label>
                   <textarea 
                     rows={4}
                     required
                     placeholder="Outline spatial parameters, valuation expectations, or development plots under consideration..."
-                    className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600 text-slate-700 leading-relaxed"
+                    className="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600 text-slate-700 leading-relaxed"
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                   />
                 </div>
 
                 <div className="pt-2">
-                  <button type="submit" className="w-full text-center rounded-lg bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:shadow-lg active:scale-[0.98]">
+                  <button type="submit" className="w-full text-center rounded-lg bg-blue-600 px-6 py-4 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:shadow-lg active:scale-[0.98]">
                     Dispatch Message to Brokerage Desk
                   </button>
                   <p className="text-center text-[10px] text-slate-400 uppercase tracking-widest mt-3 font-mono">

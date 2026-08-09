@@ -16,7 +16,7 @@ export default function Invest() {
           
           {/* Left Column: Asymmetric Copy Block & Micro-Metrics Grid */}
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center space-x-2.5 rounded-full bg-blue-50 border border-blue-100 px-3 py-1">
+            <div className="inline-flex items-center space-x-3 rounded-full bg-blue-50 border border-blue-100 px-3 py-1">
               <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
               <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
                 Institutional Asset Management
@@ -91,20 +91,20 @@ export default function Invest() {
                     Active Asset Pool
                   </span>
                 </div>
-                <span className="rounded bg-emerald-50 px-1.5 py-0.5 text-[10px] font-bold font-mono text-emerald-700">
+                <span className="rounded bg-emerald-50 px-2 py-1 text-[10px] font-bold font-mono text-emerald-700">
                   LIVE YIELD
                 </span>
               </div>
               <div className="mt-3 flex items-baseline space-x-2">
                 <span className="text-3xl font-extrabold tracking-tight text-slate-900">14.8%</span>
                 <span className="text-xs font-bold text-emerald-600 font-mono flex items-center">
-                  <svg className="mr-0.5 h-3 w-3" fill="currentColor" viewBox="0 0 12 12">
+                  <svg className="mr-1 h-3 w-3" fill="currentColor" viewBox="0 0 12 12">
                     <path d="M6 2l2.5 4h-5L6 2z" />
                   </svg>
                   +1.2% YOY
                 </span>
               </div>
-              <p className="mt-1.5 text-xs leading-relaxed text-slate-500 border-t border-slate-100 pt-2">
+              <p className="mt-2 text-xs leading-relaxed text-slate-500 border-t border-slate-100 pt-2">
                 Average annualized net lease yield distributed across regional commercial portfolios.
               </p>
             </div>

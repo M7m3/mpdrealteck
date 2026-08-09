@@ -588,7 +588,7 @@ export const PROPERTIES_DB = [
     developer: "Czar Buildcon Private Limited (Gambhir Housing India)",
     legacyEstablished: 2012, // Year of corporate incorporation
     // Local image path pointer matching requested structure
-    image: "/properties/ghi.jpg", 
+    image: "/properties/ghi.avif",
     approvalStatus: {
       mvdaApproved: false, // Regulated via District Jila Panchayat Framework
       jilaPanchayatApproved: true,

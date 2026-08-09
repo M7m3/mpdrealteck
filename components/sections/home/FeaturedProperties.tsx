@@ -19,7 +19,7 @@ export default function FeaturedProperties() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between border-b border-slate-200 pb-10">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-1.5 rounded-md bg-blue-50 border border-blue-100 px-2.5 py-1">
+            <div className="inline-flex items-center gap-2 rounded-md bg-blue-50 border border-blue-100 px-3 py-1">
               <span className="h-1.5 w-1.5 rounded-full bg-blue-600 animate-pulse" />
               <span className="text-xs font-bold uppercase tracking-widest text-blue-600">
                 Curated Portfolio
@@ -29,11 +29,11 @@ export default function FeaturedProperties() {
               Featured Asset Allocations
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600">
-              Explore high-performance corporate leasing, institutional commercial infrastructure, and premium residential land packages[cite: 6].
+              Explore high-performance corporate leasing, institutional commercial infrastructure, and premium residential land packages.
             </p>
           </div>
           <div className="mt-6 md:mt-0 shrink-0">
-            <Link href="/properties">
+            <Link href="/buy">
               <button className="rounded-lg border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-all duration-200 hover:bg-slate-50 hover:text-slate-900 shadow-sm">
                 View Full Inventory
               </button>
@@ -70,7 +70,7 @@ export default function FeaturedProperties() {
                     
                     {/* Absolute Overlays */}
                     <div className="absolute inset-x-3 top-3 flex items-center justify-between pointer-events-none">
-                      <span className={`inline-flex items-center rounded-md px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm border
+                      <span className={`inline-flex items-center rounded-md px-3 py-1 text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm border
                         ${isDarkCard 
                           ? 'bg-slate-900/90 text-white border-white/10' 
                           : 'bg-slate-900/85 text-white border-white/15'
@@ -85,7 +85,7 @@ export default function FeaturedProperties() {
 
                   {/* Meta Details Layer */}
                   <div className="mt-5">
-                    <div className="flex items-center space-x-1.5 text-xs font-bold uppercase tracking-wider text-blue-500">
+                    <div className="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-blue-500">
                       <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
@@ -102,16 +102,16 @@ export default function FeaturedProperties() {
                 </div>
 
                 {/* Tactical Features Micro-Specs Block */}
-                <div className={`mt-5 grid grid-cols-2 gap-2 border-t border-b py-3.5 my-1
+                <div className={`mt-5 grid grid-cols-2 gap-2 border-t border-b py-4 my-1
                   ${isDarkCard ? 'border-slate-800' : 'border-slate-100'}`}
                 >
-                  <div className="flex items-center gap-1.5 text-xs font-medium">
+                  <div className="flex items-center gap-2 text-xs font-medium">
                     <svg className="h-4 w-4 text-blue-500 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L12 7.5l4.143 2.25m-11.143 4.5L2.25 12l4.179 2.25m0 0 5.571 3 5.571-3m0 0 4.179-2.25-4.179-2.25m-11.142 4.5L12 16.5l4.143-2.25" />
                     </svg>
                     <span className={isDarkCard ? 'text-slate-400' : 'text-slate-500'}>Clear Title</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs font-medium justify-end">
+                  <div className="flex items-center gap-2 text-xs font-medium justify-end">
                     <svg className="h-4 w-4 text-emerald-500 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751A11.956 11.956 0 0 1 12 2.714Z" />
                     </svg>

@@ -83,9 +83,11 @@ export default function MobileMenu({ open, onClose, navLinks }: MobileMenuProps)
 
         {/* Action Callouts mapped to agents.md Blueprint */}
         <div className="mt-auto border-t border-slate-200 pt-6 space-y-3">
-          <button className="w-full rounded-lg bg-blue-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 active:scale-[0.98]">
-            Get Started
-          </button>
+          <Link href="/contact" onClick={onClose} className="block">
+            <button className="w-full rounded-lg bg-blue-600 px-6 py-3 text-center text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 active:scale-[0.98]">
+              Get Started
+            </button>
+          </Link>
           <button 
             onClick={onClose}
             className="w-full rounded-lg border border-slate-200 bg-white px-6 py-3 text-center text-sm font-semibold text-slate-700 transition-all duration-200 hover:bg-slate-50"

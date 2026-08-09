@@ -1,6 +1,7 @@
 import Navbar from '@/components/layout/Navbar'
 import '@/app/globals.css' // Or your path to tailwind styles
 import Footer from '@/components/layout/Footer'
+import WhatsAppButton from '@/components/common/WhatsAppButton'
 
 export default function RootLayout({
   children,
@@ -13,6 +14,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   )

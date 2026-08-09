@@ -99,7 +99,7 @@ export default function Cities() {
                 
                 {/* Smooth Hidden Action Trigger Link */}
                 <div className="mt-4 flex items-center space-x-2 text-sm font-semibold text-white/90 opacity-0 transition-all duration-300 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0">
-                  <Link href={`/cities/${city.name.toLowerCase()}`} className="hover:underline focus:outline-none">
+                  <Link href="/buy" className="hover:underline focus:outline-none">
                     Explore Inventory
                   </Link>
                   <svg className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">

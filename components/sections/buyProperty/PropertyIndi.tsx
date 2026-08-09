@@ -37,7 +37,7 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
     <div className="bg-slate-50 min-h-screen pb-24">
       
       {/* 1. Immersive Corporate Header Layer */}
-      <div className="relative bg-slate-900 py-16 text-white overflow-hidden border-b border-slate-800">
+      <div className="relative bg-slate-900 pt-20 pb-16 text-white overflow-hidden border-b border-slate-800 md:pt-28">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-20 pointer-events-none" />
         <div className="absolute top-0 right-0 -mt-24 -mr-24 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
         
@@ -56,7 +56,7 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
                   {asset.projectTimeline?.status || "Verified Real Estate"}
                 </span>
                 {isApproved && (
-                  <span className="rounded bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-emerald-400 backdrop-blur-md flex items-center gap-1.5">
+                  <span className="rounded bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-emerald-400 backdrop-blur-md flex items-center gap-2">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                     Regulatory Cleared
                   </span>
@@ -72,7 +72,7 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
               <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block font-mono">Market Asset Valuation</span>
               <span className="text-3xl font-black text-white tracking-tight block mt-1">{displayPrice}</span>
               {asset.pricingAndInventory?.eoiTokenAmount && (
-                <div className="mt-2 flex items-center lg:justify-end gap-1.5 text-xs text-blue-400 font-mono font-medium">
+                <div className="mt-2 flex items-center lg:justify-end gap-2 text-xs text-blue-400 font-mono font-medium">
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
                   </svg>
@@ -106,7 +106,7 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
 
             {/* Geographical Site Identification Matrix */}
             <div className="rounded-xl border border-slate-200/60 bg-white p-6 shadow-sm sm:p-8 transition-all duration-200 hover:shadow-md">
-              <h3 className="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-2.5">
+              <h3 className="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-3">
                 <svg className="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" strokeWidth="2.2" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
@@ -120,14 +120,14 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
                 {asset.location?.geographicalContext}
               </p>
               <div className="mt-5 rounded-lg bg-slate-50 border border-slate-200/60 p-4 text-xs text-slate-700">
-                <span className="font-bold text-slate-900 block uppercase mb-1.5 font-mono tracking-wider text-[10px]">Site Parcel Legal Registry:</span>
+                <span className="font-bold text-slate-900 block uppercase mb-2 font-mono tracking-wider text-[10px]">Site Parcel Legal Registry:</span>
                 <span className="font-medium selection:bg-blue-100">{asset.location?.address}</span>
               </div>
             </div>
 
             {/* Structural Parameters & Geometry Metrics */}
             <div className="rounded-xl border border-slate-200/60 bg-white p-6 shadow-sm transition-all duration-200 hover:shadow-md">
-              <h3 className="text-xl font-bold tracking-tight text-slate-900 mb-5 flex items-center gap-2.5">
+              <h3 className="text-xl font-bold tracking-tight text-slate-900 mb-5 flex items-center gap-3">
                 <svg className="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" strokeWidth="2.2" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v16.5m16.5-16.5v16.5M3.75 12h16.5M5.625 5.625h12.75M5.625 18.375h12.75" />
                 </svg>
@@ -157,7 +157,7 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
 
             {/* Inventory Real Estate Configuration Sub-Table */}
             <div className="rounded-xl border border-slate-200/60 bg-white p-6 shadow-sm transition-all duration-200 hover:shadow-md">
-              <h3 className="text-xl font-bold tracking-tight text-slate-900 mb-4 flex items-center gap-2.5">
+              <h3 className="text-xl font-bold tracking-tight text-slate-900 mb-4 flex items-center gap-3">
                 <svg className="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" strokeWidth="2.2" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 17.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
                 </svg>
@@ -175,13 +175,13 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
                   <tbody className="divide-y divide-slate-100 text-xs font-medium text-slate-700">
                     {Array.isArray(asset.pricingAndInventory?.unitTypes) && asset.pricingAndInventory.unitTypes.map((unit, idx) => (
                       <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
-                        <td className="px-4 py-3.5 text-slate-900 font-bold">{unit.type}</td>
-                        <td className="px-4 py-3.5 text-slate-600 font-mono">
+                        <td className="px-4 py-4 text-slate-900 font-bold">{unit.type}</td>
+                        <td className="px-4 py-4 text-slate-600 font-mono">
                           {typeof unit.sizes === 'object' && !Array.isArray(unit.sizes) 
                             ? `Carpet: ${unit.sizes.carpetArea || 'N/A'}` 
                             : Array.isArray(unit.sizes) ? unit.sizes.join(' | ') : unit.sizes}
                         </td>
-                        <td className="px-4 py-3.5 text-right font-bold text-blue-600 font-mono">{unit.startingPrice}</td>
+                        <td className="px-4 py-4 text-right font-bold text-blue-600 font-mono">{unit.startingPrice}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -191,17 +191,17 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
 
             {/* Micro-Proximity Logistics Metric Timeline Map */}
             <div className="rounded-xl border border-slate-200/60 bg-white p-6 shadow-sm transition-all duration-200 hover:shadow-md">
-              <h3 className="text-xl font-bold tracking-tight text-slate-900 mb-5 flex items-center gap-2.5">
+              <h3 className="text-xl font-bold tracking-tight text-slate-900 mb-5 flex items-center gap-3">
                 <svg className="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" strokeWidth="2.2" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8m6-3h.008v.008H21V12Zm-3 3h.008v.008H18v-.008Zm-3 3h.008v.008H15v-.008Zm-3-6h.008v.008H12v-.008ZM9 15h.008v.008H9V15Zm-3 3h.008v.008H6v-.008Zm-3-3h.008v.008H3V15Zm0-3h.008v.008H3V12Zm0-3h.008v.008H3V9Zm0-3h.008v.008H3V6Z" />
                 </svg>
                 Proximity Metrics & Transit Nodes
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {asset.proximityMetrics?.map((metric, idx) => (
                   <div key={idx} className="flex justify-between items-center p-3 rounded-lg bg-slate-50 border border-slate-100 hover:border-slate-200 transition-all">
                     <span className="text-xs text-slate-700 font-semibold truncate pr-2">{metric.target}</span>
-                    <span className="text-xs font-bold text-blue-600 bg-blue-50 border border-blue-100 px-2 py-0.5 rounded shrink-0 font-mono">{metric.distance}</span>
+                    <span className="text-xs font-bold text-blue-600 bg-blue-50 border border-blue-100 px-2 py-1 rounded shrink-0 font-mono">{metric.distance}</span>
                   </div>
                 ))}
               </div>
@@ -209,7 +209,7 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
 
             {/* Comprehensive Facilities Blueprint Array */}
             <div className="rounded-xl border border-slate-200/60 bg-white p-6 shadow-sm transition-all duration-200 hover:shadow-md">
-              <h3 className="text-xl font-bold tracking-tight text-slate-900 mb-5 flex items-center gap-2.5">
+              <h3 className="text-xl font-bold tracking-tight text-slate-900 mb-5 flex items-center gap-3">
                 <svg className="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" strokeWidth="2.2" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17 17.25 21A1.79 1.79 0 0 0 20 19.75l-5.83-5.83m0 0a2.89 2.89 0 0 1-4.07-4.07m4.07 4.07a2.89 2.89 0 0 0-4.07-4.07m0 0A2.25 2.25 0 0 0 8 10.5a2.25 2.25 0 0 0 2.25 2.25m-4.07-4.07L1.42 1.42A1.79 1.79 0 0 0 0 2.83l5.83 5.83m0 0a2.89 2.89 0 0 0 4.07 4.07M24 4.25a1.79 1.79 0 0 0-1.42-1.42l-5.83 5.83m0 0a2.89 2.89 0 0 0-4.07-4.07m0 0A2.25 2.25 0 0 0 10.5 8a2.25 2.25 0 0 0 2.25 2.25m4.07-4.07 5.83-5.83A1.79 1.79 0 0 0 24 1.42l-5.83 5.83" />
                 </svg>
@@ -217,8 +217,8 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                 {asset.amenitiesList?.map((amenity, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 p-3 rounded-lg border border-slate-100 hover:bg-slate-50 transition-colors">
-                    <svg className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor">
+                  <div key={idx} className="flex items-start gap-3 p-3 rounded-lg border border-slate-100 hover:bg-slate-50 transition-colors">
+                    <svg className="h-4 w-4 text-emerald-500 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                     <span className="text-xs font-semibold text-slate-700 leading-tight">{amenity}</span>
@@ -234,7 +234,7 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
             {/* Regulatory Governance Vault */}
             <div className="rounded-xl border border-slate-200/60 bg-white p-6 shadow-sm transition-all duration-200 hover:shadow-md">
               <h4 className="text-xs font-extrabold uppercase tracking-widest text-slate-400 mb-4 font-mono">Governance & Framework Compliance</h4>
-              <div className="space-y-3.5">
+              <div className="space-y-4">
                 {asset.approvalStatus?.reraCertified ? (
                   <div className="rounded-lg bg-emerald-50 border border-emerald-200/60 p-4">
                     <div className="flex items-center gap-2 text-emerald-800 text-xs font-bold uppercase tracking-wider">
@@ -242,7 +242,7 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
                       UP-RERA Certified Tracking Node
                     </div>
                     {asset.approvalStatus.reraNumber && (
-                      <span className="block mt-2 text-xs font-mono font-bold text-slate-600 select-all bg-white border border-slate-200 rounded-md px-2.5 py-1.5 shadow-xs">
+                      <span className="block mt-2 text-xs font-mono font-bold text-slate-600 select-all bg-white border border-slate-200 rounded-md px-3 py-2 shadow-xs">
                         {asset.approvalStatus.reraNumber}
                       </span>
                     )}
@@ -256,25 +256,25 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
 
                 <div className="divide-y divide-slate-100 border-t border-slate-100 mt-2">
                   {asset.approvalStatus?.mvdaApproved && (
-                    <div className="flex justify-between py-2.5 text-xs font-semibold">
+                    <div className="flex justify-between py-3 text-xs font-semibold">
                       <span className="text-slate-500">MVDA Clearance</span>
                       <span className="text-emerald-600 font-bold">Approved Authority</span>
                     </div>
                   )}
                   {asset.approvalStatus?.noidaAuthorityApproved && (
-                    <div className="flex justify-between py-2.5 text-xs font-semibold">
+                    <div className="flex justify-between py-3 text-xs font-semibold">
                       <span className="text-slate-500">Noida Authority Clearance</span>
                       <span className="text-emerald-600 font-bold">Validated Mapping</span>
                     </div>
                   )}
                   {asset.approvalStatus?.jilaPanchayatApproved && (
-                    <div className="flex flex-col gap-1 py-2.5 text-xs font-semibold">
+                    <div className="flex flex-col gap-1 py-3 text-xs font-semibold">
                       <div className="flex justify-between">
                         <span className="text-slate-500">Zila Panchayat Agra</span>
                         <span className="text-emerald-600 font-bold">Permit Authorized</span>
                       </div>
                       {asset.approvalStatus.permitNumber && (
-                        <span className="text-[10px] text-slate-400 font-mono tracking-tight text-right block mt-0.5">
+                        <span className="text-[10px] text-slate-400 font-mono tracking-tight text-right block mt-1">
                           No: {asset.approvalStatus.permitNumber}
                         </span>
                       )}
@@ -310,8 +310,8 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
               <h4 className="text-xs font-extrabold uppercase tracking-widest text-slate-400 mb-4 font-mono">Investment Intelligence Insights</h4>
               <div className="space-y-3">
                 {Object.entries(asset.investmentInsights || {}).map(([key, val], idx) => (
-                  <div key={idx} className="p-3.5 rounded-lg bg-slate-50 border border-slate-100 flex gap-3 items-start">
-                    <svg className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
+                  <div key={idx} className="p-4 rounded-lg bg-slate-50 border border-slate-100 flex gap-3 items-start">
+                    <svg className="h-4 w-4 text-blue-600 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z" />
                     </svg>
                     <div>
@@ -333,12 +333,12 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
                 </svg>
               </span>
               <h4 className="text-base font-bold tracking-tight text-slate-900">Initiate Acquisition Framework</h4>
-              <p className="mt-1.5 text-xs leading-relaxed text-slate-600 max-w-xs mx-auto">
+              <p className="mt-2 text-xs leading-relaxed text-slate-600 max-w-xs mx-auto">
                 Connect with our transactional placement desk to lock portfolio pricing lines and evaluate title abstracts.
               </p>
               <div className="mt-5">
                 <Link href="/contact" className="block focus:outline-none">
-                  <button className="w-full rounded-lg bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:shadow-lg active:scale-[0.98]">
+                  <button className="w-full rounded-lg bg-blue-600 px-6 py-4 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:shadow-lg active:scale-[0.98]">
                     Contact Us Page Direct Axis
                   </button>
                 </Link>
