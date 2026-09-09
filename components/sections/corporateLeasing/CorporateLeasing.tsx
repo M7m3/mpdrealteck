@@ -3,19 +3,36 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { CORPORATE_LEASING_DB } from '@/data/corporateLeasing'
 import ShortlistButton from '@/components/common/ShortlistButton'
+import PropertyReviews from '@/components/common/PropertyReviews'
 
-export default function CorporateLeasing() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type LeasingAsset = Record<string, any>
+
+interface CorporateLeasingProps {
+  properties: LeasingAsset[]
+}
+
+export default function CorporateLeasing({ properties }: CorporateLeasingProps) {
   const [formData, setFormData] = useState({
     name: '',
     company: '',
     email: '',
     phone: '',
-    property: CORPORATE_LEASING_DB[0].name,
+    property: properties[0]?.name || '',
     message: '',
   })
   const [submitted, setSubmitted] = useState(false);
+  const [expandedReviews, setExpandedReviews] = useState<Set<string>>(new Set())
+
+  const toggleReviews = (id: string) => {
+    setExpandedReviews((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id)
+      else next.add(id)
+      return next
+    })
+  }
 
   const handleEnquire = (propertyName: string) => {
     setFormData((prev) => ({ ...prev, property: propertyName }))
@@ -27,7 +44,7 @@ export default function CorporateLeasing() {
     e.preventDefault()
     console.log('Corporate leasing inquiry submitted:', formData)
     setSubmitted(true)
-    setFormData({ name: '', company: '', email: '', phone: '', property: CORPORATE_LEASING_DB[0].name, message: '' })
+    setFormData({ name: '', company: '', email: '', phone: '', property: properties[0]?.name || '', message: '' })
   }
 
   return (
@@ -37,7 +54,7 @@ export default function CorporateLeasing() {
       <div className="relative mx-auto max-w-7xl px-6 sm:px-6 lg:px-8">
         {/* Asset Cards Grid */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {CORPORATE_LEASING_DB.map((asset) => (
+          {properties.map((asset) => (
             <div
               key={asset.id}
               className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200/60 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
@@ -83,7 +100,7 @@ export default function CorporateLeasing() {
 
                 {/* Floor Areas Table */}
                 <div className="mt-5 grid grid-cols-2 gap-2 rounded-lg bg-slate-50 border border-slate-100 p-4 sm:grid-cols-2">
-                  {asset.floorAreas.map((floor) => (
+                  {(asset.floorAreas || []).map((floor: { level: string; detail: string }) => (
                     <div key={floor.level} className="text-xs">
                       <span className="block font-bold uppercase tracking-wide text-slate-400 text-[10px]">{floor.level}</span>
                       <span className="block font-semibold text-slate-800 mt-1">{floor.detail}</span>
@@ -93,7 +110,7 @@ export default function CorporateLeasing() {
 
                 {/* Highlights */}
                 <ul className="mt-5 space-y-2">
-                  {asset.highlights.map((point) => (
+                  {(asset.highlights || []).map((point: string) => (
                     <li key={point} className="flex gap-2 text-xs leading-relaxed text-slate-600">
                       <svg className="h-4 w-4 shrink-0 text-emerald-500" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
@@ -129,6 +146,24 @@ export default function CorporateLeasing() {
                     </Link>
                   )}
                 </div>
+
+                <button
+                  onClick={() => toggleReviews(asset.id)}
+                  className="mt-4 flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-5 py-2.5 text-xs font-semibold text-slate-600 transition-all duration-200 hover:bg-slate-50 hover:text-slate-900"
+                >
+                  {expandedReviews.has(asset.id) ? 'Hide Reviews' : 'Show Reviews & Ratings'}
+                  <svg className={`h-4 w-4 transition-transform duration-200 ${expandedReviews.has(asset.id) ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </button>
+
+                {expandedReviews.has(asset.id) && (
+                  <div className="mt-4 -mx-6 -mb-6 sm:-mx-8 sm:-mb-8">
+                    <div className="border-t border-slate-100 bg-slate-50/60 p-6 sm:p-8 rounded-b-xl">
+                      <PropertyReviews propertyId={asset.id} propertySource="corporate-leasing" />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -166,7 +201,7 @@ export default function CorporateLeasing() {
                   <input
                     type="text"
                     required
-                    placeholder="e.g., Mandeep Singh"
+                    placeholder="Your full name"
                     className="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -216,7 +251,7 @@ export default function CorporateLeasing() {
                   value={formData.property}
                   onChange={(e) => setFormData({ ...formData, property: e.target.value })}
                 >
-                  {CORPORATE_LEASING_DB.map((asset) => (
+                  {properties.map((asset) => (
                     <option key={asset.id} value={asset.name}>{asset.name}</option>
                   ))}
                   <option value="Other">Other / Not Sure Yet</option>

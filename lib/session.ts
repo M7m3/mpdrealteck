@@ -2,7 +2,7 @@ import crypto from 'crypto'
 import { cookies } from 'next/headers'
 import { prisma } from '@/lib/prisma'
 
-export const SESSION_COOKIE_NAME = 'brijvaas_session'
+export const SESSION_COOKIE_NAME = 'mpdrealteck_session'
 export const SESSION_TTL_DAYS = 30
 
 function hashToken(token: string): string {

@@ -1,18 +1,30 @@
 "use client"
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/contexts/AuthContext'
 import { useShortlist } from '@/contexts/ShortlistContext'
-import { PROPERTIES_DB } from '@/data/db'
-import { CORPORATE_LEASING_DB } from '@/data/corporateLeasing'
+
+interface ResolvedAsset {
+  key: string
+  name: string
+  image: string
+  location: string
+  price: string
+  href: string
+  badge: string
+  propertyId: string
+  propertySource: 'buy' | 'corporate-leasing'
+}
 
 export default function ShortlistGrid() {
   const { user, loading } = useAuth()
   const { items, loading: shortlistLoading, toggle } = useShortlist()
   const router = useRouter()
+  const [resolved, setResolved] = useState<ResolvedAsset[]>([])
+  const [resolving, setResolving] = useState(true)
 
   useEffect(() => {
     if (!loading && !user) {
@@ -20,50 +32,71 @@ export default function ShortlistGrid() {
     }
   }, [loading, user, router])
 
-  if (loading || !user) {
-    return (
-      <div className="mx-auto max-w-3xl px-4 py-24 text-center">
-        <p className="text-sm text-slate-500">Loading your shortlist…</p>
-      </div>
-    )
-  }
+  useEffect(() => {
+    // Resolves shortlist entries against fetched property data whenever the
+    // shortlist itself changes — an unavoidable fetch-then-setState effect.
+    if (items.length === 0) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setResolved([])
+      setResolving(false)
+      return
+    }
 
-  const resolved = items
-    .map((item) => {
-      if (item.propertySource === 'buy') {
-        const asset = PROPERTIES_DB.find((p) => p.id === item.propertyId)
-        if (!asset) return null
-        return {
-          key: `buy-${asset.id}`,
-          name: asset.name,
-          image: asset.image,
-          location: asset.location?.city || 'Regional',
-          price: asset.pricingAndInventory?.priceRange || 'Price on Request',
-          href: `/buy/${asset.id}`,
-          badge: 'Buy',
-          propertyId: item.propertyId,
-          propertySource: item.propertySource,
-        }
-      }
-      const asset = CORPORATE_LEASING_DB.find((p) => p.id === item.propertyId)
-      if (!asset) return null
-      return {
-        key: `leasing-${asset.id}`,
-        name: asset.name,
-        image: asset.image,
-        location: asset.location,
-        price: asset.priceRange,
-        href: asset.detailHref || '/corporate-leasing',
-        badge: 'Corporate Leasing',
-        propertyId: item.propertyId,
-        propertySource: item.propertySource,
-      }
-    })
-    .filter((x): x is NonNullable<typeof x> => x !== null)
+    const needsBuy = items.some((i) => i.propertySource === 'buy')
+    const needsLeasing = items.some((i) => i.propertySource === 'corporate-leasing')
+
+    setResolving(true)
+    Promise.all([
+      needsBuy ? fetch('/api/properties?source=buy').then((r) => r.json()) : Promise.resolve({ properties: [] }),
+      needsLeasing ? fetch('/api/properties?source=corporate-leasing').then((r) => r.json()) : Promise.resolve({ properties: [] }),
+    ])
+      .then(([buyData, leasingData]) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const buyAssets: any[] = buyData.properties || []
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const leasingAssets: any[] = leasingData.properties || []
+
+        const next = items
+          .map((item) => {
+            if (item.propertySource === 'buy') {
+              const asset = buyAssets.find((p) => p.id === item.propertyId)
+              if (!asset) return null
+              return {
+                key: `buy-${asset.id}`,
+                name: asset.name,
+                image: asset.image,
+                location: asset.location?.city || 'Regional',
+                price: asset.pricingAndInventory?.priceRange || 'Price on Request',
+                href: `/buy/${asset.id}`,
+                badge: 'Buy',
+                propertyId: item.propertyId,
+                propertySource: item.propertySource,
+              }
+            }
+            const asset = leasingAssets.find((p) => p.id === item.propertyId)
+            if (!asset) return null
+            return {
+              key: `leasing-${asset.id}`,
+              name: asset.name,
+              image: asset.image,
+              location: asset.location,
+              price: asset.priceRange,
+              href: asset.detailHref || '/corporate-leasing',
+              badge: 'Corporate Leasing',
+              propertyId: item.propertyId,
+              propertySource: item.propertySource,
+            }
+          })
+          .filter((x): x is ResolvedAsset => x !== null)
+
+        setResolved(next)
+      })
+      .finally(() => setResolving(false))
+  }, [items])
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      {shortlistLoading ? (
+      {shortlistLoading || resolving ? (
         <p className="py-16 text-center text-sm text-slate-500">Loading your saved properties…</p>
       ) : resolved.length === 0 ? (
         <div className="rounded-xl border border-dashed border-slate-300 bg-white py-20 text-center">

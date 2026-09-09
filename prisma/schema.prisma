@@ -7,26 +7,30 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  name      String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id              String    @id @default(cuid())
+  email           String    @unique
+  name            String?
+  passwordHash    String?
+  emailVerifiedAt DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
 
   sessions   Session[]
   shortlists Shortlist[]
+  reviews    Review[]
 }
 
 model OtpCode {
   id         String    @id @default(cuid())
   email      String
   codeHash   String
+  purpose    String    @default("verify-email")
   expiresAt  DateTime
   consumedAt DateTime?
   attempts   Int       @default(0)
   createdAt  DateTime  @default(now())
 
-  @@index([email])
+  @@index([email, purpose])
 }
 
 model Session {
@@ -52,4 +56,70 @@ model Shortlist {
 
   @@unique([userId, propertyId, propertySource])
   @@index([userId])
+}
+
+model Review {
+  id             String   @id @default(cuid())
+  userId         String
+  propertyId     String
+  propertySource String
+  rating         Int
+  comment        String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, propertyId, propertySource])
+  @@index([propertyId, propertySource])
+}
+
+model Property {
+  id         String   @id @default(cuid())
+  source     String   // 'buy' | 'corporate-leasing'
+  slug       String
+  name       String
+  developer  String?
+  image      String
+  city       String?
+  state      String?
+  status     String?
+  priceRange String?
+  description String? @db.Text
+  reraCertified Boolean @default(false)
+  reraNumber String?
+  details    Json     @default("{}")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([source, slug])
+  @@index([source])
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  excerpt     String?
+  contentHtml String   @db.Text
+  images      String[] @default([])
+  published   Boolean  @default(true)
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model NotificationSubscriber {
+  id               String   @id @default(cuid())
+  email            String   @unique
+  active           Boolean  @default(true)
+  unsubscribeToken String   @unique
+  createdAt        DateTime @default(now())
+}
+
+model AdminSession {
+  id        String   @id @default(cuid())
+  tokenHash String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
 }

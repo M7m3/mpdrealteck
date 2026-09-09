@@ -114,7 +114,7 @@ export default function AccountSettings() {
               type="text"
               required
               maxLength={80}
-              placeholder="e.g., Mandeep Singh"
+              placeholder="Your full name"
               className="w-full rounded-lg border border-slate-200 px-4 py-2.5 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
               value={name}
               onChange={(e) => {

@@ -3,17 +3,17 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { PROPERTIES_DB } from '@/data/db'
 import ShortlistButton from '@/components/common/ShortlistButton'
+import PropertyReviews from '@/components/common/PropertyReviews'
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type BuyAsset = Record<string, any>
 
 interface PropertyIndiProps {
-  id: string
+  asset: BuyAsset | null
 }
 
-export default function PropertyIndi({ id }: PropertyIndiProps) {
-  // Query the centralized real estate portfolio database matching the unique resource key
-  const asset = PROPERTIES_DB.find((item) => item.id === id)
-
+export default function PropertyIndi({ asset }: PropertyIndiProps) {
   if (!asset) {
     return (
       <div className="mx-auto max-w-7xl px-4 py-24 text-center bg-slate-50">
@@ -177,7 +177,7 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100 text-xs font-medium text-slate-700">
-                    {Array.isArray(asset.pricingAndInventory?.unitTypes) && asset.pricingAndInventory.unitTypes.map((unit, idx) => (
+                    {Array.isArray(asset.pricingAndInventory?.unitTypes) && asset.pricingAndInventory.unitTypes.map((unit: BuyAsset, idx: number) => (
                       <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
                         <td className="px-4 py-4 text-slate-900 font-bold">{unit.type}</td>
                         <td className="px-4 py-4 text-slate-600 font-mono">
@@ -202,7 +202,7 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
                 Proximity Metrics & Transit Nodes
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {asset.proximityMetrics?.map((metric, idx) => (
+                {asset.proximityMetrics?.map((metric: BuyAsset, idx: number) => (
                   <div key={idx} className="flex justify-between items-center p-3 rounded-lg bg-slate-50 border border-slate-100 hover:border-slate-200 transition-all">
                     <span className="text-xs text-slate-700 font-semibold truncate pr-2">{metric.target}</span>
                     <span className="text-xs font-bold text-blue-600 bg-blue-50 border border-blue-100 px-2 py-1 rounded shrink-0 font-mono">{metric.distance}</span>
@@ -220,7 +220,7 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
                 Integrated Infrastructure Ecosystem
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                {asset.amenitiesList?.map((amenity, idx) => (
+                {asset.amenitiesList?.map((amenity: string, idx: number) => (
                   <div key={idx} className="flex items-start gap-3 p-3 rounded-lg border border-slate-100 hover:bg-slate-50 transition-colors">
                     <svg className="h-4 w-4 text-emerald-500 shrink-0 mt-1" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
@@ -230,6 +230,8 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
                 ))}
               </div>
             </div>
+
+            <PropertyReviews propertyId={asset.id} propertySource="buy" />
           </div>
 
           {/* Strategic Side-panel Column Block (Right) */}
@@ -298,7 +300,7 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
                 Signature Value Framework
               </h4>
               <ul className="space-y-4">
-                {asset.signatureUSPs?.map((usp, idx) => (
+                {asset.signatureUSPs?.map((usp: string, idx: number) => (
                   <li key={idx} className="flex gap-3 text-xs leading-relaxed text-slate-300">
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-blue-500/10 border border-blue-500/30 text-[10px] font-black text-blue-400 font-mono">
                       0{idx + 1}

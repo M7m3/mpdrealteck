@@ -27,7 +27,7 @@ export default function CallToAction() {
           </h2>
           
           <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-slate-400 lg:text-lg">
-            Connect directly with Brijvaas Asset Dealers. From prime roadside commercial land allocations to ready-to-move corporate leasing buildings, we negotiate, clear titles, and secure the inventory you need to build or scale.
+            Connect directly with MPD Realteck. From prime roadside commercial land allocations to ready-to-move corporate leasing buildings, we negotiate, clear titles, and secure the inventory you need to build or scale.
           </p>
 
           {/* Premium High-Contrast Deal Box Action Hub */}

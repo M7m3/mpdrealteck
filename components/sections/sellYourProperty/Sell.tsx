@@ -187,7 +187,7 @@ export default function SellPropertyPage() {
                     <input 
                       type="text" 
                       required
-                      placeholder="e.g., Mandeep Singh"
+                      placeholder="Your full legal name"
                       className="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
                       value={formData.fullName}
                       onChange={(e) => setFormData({...formData, fullName: e.target.value})}

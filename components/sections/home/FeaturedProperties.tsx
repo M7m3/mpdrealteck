@@ -3,11 +3,16 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { PROPERTIES_DB } from '@/data/db'
 
-export default function FeaturedProperties() {
-  // Extract exactly four primary properties from our centralized dataset
-  const featuredAssets = PROPERTIES_DB.slice(0, 4)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type BuyAsset = Record<string, any>
+
+interface FeaturedPropertiesProps {
+  properties: BuyAsset[]
+}
+
+export default function FeaturedProperties({ properties }: FeaturedPropertiesProps) {
+  const featuredAssets = properties
 
   return (
     <section className="relative overflow-hidden bg-slate-50 py-24 lg:py-32" id="featured-properties">

@@ -70,8 +70,20 @@ async function sendMail(input: MailInput): Promise<SendResult> {
   return { delivered: false }
 }
 
-function otpEmailHtml(code: string) {
+function otpEmailHtml(code: string, purpose: 'verify-email' | 'reset-password') {
   const digits = code.split('')
+  const copy =
+    purpose === 'reset-password'
+      ? {
+          eyebrow: 'Reset Your Password',
+          heading: 'Your password reset code',
+          body: 'Enter this code to choose a new password for your MPD Realteck account.',
+        }
+      : {
+          eyebrow: 'Verify Your Email',
+          heading: 'Your verification code',
+          body: 'Enter this code to verify your email and finish creating your MPD Realteck account.',
+        }
   return `
 <!DOCTYPE html>
 <html>
@@ -90,13 +102,13 @@ function otpEmailHtml(code: string) {
             <tr>
               <td style="padding:40px 32px 8px 32px;text-align:center;">
                 <p style="margin:0;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#2563eb;">
-                  Verify Your Sign-In
+                  ${copy.eyebrow}
                 </p>
                 <h1 style="margin:12px 0 0 0;font-size:24px;font-weight:800;color:#0f172a;letter-spacing:-0.01em;">
-                  Your one-time passcode
+                  ${copy.heading}
                 </h1>
                 <p style="margin:12px 0 0 0;font-size:14px;line-height:1.6;color:#475569;">
-                  Enter this code to finish signing in to your MPD Realteck account.
+                  ${copy.body}
                 </p>
               </td>
             </tr>
@@ -140,11 +152,16 @@ function otpEmailHtml(code: string) {
 </html>`
 }
 
-export async function sendOtpEmail(email: string, code: string) {
+export async function sendOtpEmail(email: string, code: string, purpose: 'verify-email' | 'reset-password' = 'verify-email') {
+  const subject =
+    purpose === 'reset-password'
+      ? `${code} is your MPD Realteck password reset code`
+      : `${code} is your MPD Realteck verification code`
+
   return sendMail({
     to: email,
-    subject: `${code} is your MPD Realteck verification code`,
-    html: otpEmailHtml(code),
+    subject,
+    html: otpEmailHtml(code, purpose),
   })
 }
 
@@ -183,6 +200,76 @@ export async function sendAccountInquiryEmail(input: { name: string; email: stri
     to: ADMIN_EMAIL,
     replyTo: input.email,
     subject: `New account inquiry from ${input.name}`,
+    html,
+  })
+}
+
+export async function sendBlogNotificationEmail(input: {
+  to: string
+  title: string
+  excerpt: string
+  slug: string
+  unsubscribeToken: string
+}) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.mpdrealteck.in'
+  const postUrl = `${siteUrl}/invest/insights/${input.slug}`
+  const unsubscribeUrl = `${siteUrl}/api/notify-unsubscribe?token=${input.unsubscribeToken}`
+
+  const html = `
+<!DOCTYPE html>
+<html>
+  <body style="margin:0;padding:0;background-color:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f8fafc;padding:40px 16px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="520" cellpadding="0" cellspacing="0" style="max-width:520px;width:100%;background-color:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e2e8f0;">
+            <tr>
+              <td style="background-color:#0f172a;padding:28px 32px;">
+                <span style="font-size:20px;font-weight:800;letter-spacing:-0.02em;color:#ffffff;text-transform:uppercase;">
+                  MPD <span style="color:#3b82f6;">Realteck</span>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:32px 32px 8px 32px;">
+                <p style="margin:0;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#2563eb;">
+                  New Market Trends Update
+                </p>
+                <h1 style="margin:12px 0 0 0;font-size:22px;font-weight:800;color:#0f172a;letter-spacing:-0.01em;line-height:1.3;">
+                  ${input.title}
+                </h1>
+                <p style="margin:12px 0 0 0;font-size:14px;line-height:1.6;color:#475569;">
+                  ${input.excerpt}
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:24px 32px 32px 32px;">
+                <a href="${postUrl}" style="display:inline-block;background-color:#2563eb;color:#ffffff;text-decoration:none;font-size:14px;font-weight:600;padding:12px 24px;border-radius:8px;">
+                  Read the Full Update
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:20px 32px;background-color:#f8fafc;border-top:1px solid #e2e8f0;">
+                <p style="margin:0;font-size:11px;color:#94a3b8;text-align:center;">
+                  &copy; ${new Date().getFullYear()} MPD Realteck Infrastructure Group &middot; Agra, Uttar Pradesh
+                </p>
+                <p style="margin:8px 0 0 0;font-size:11px;color:#94a3b8;text-align:center;">
+                  <a href="${unsubscribeUrl}" style="color:#94a3b8;">Unsubscribe from these updates</a>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`
+
+  return sendMail({
+    to: input.to,
+    subject: `${input.title} — MPD Realteck Market Trends`,
     html,
   })
 }

@@ -1,13 +1,11 @@
-"use client"
-
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { PROPERTIES_DB } from '@/data/db'
+import { getProperties } from '@/lib/properties'
 
-export default function Footer() {
-  // Extract active project links dynamically from our central schema
-  const assetLinks = PROPERTIES_DB.map(p => ({ name: p.name, href: `/buy/${p.id}` }))
+export default async function Footer() {
+  const properties = await getProperties('buy')
+  const assetLinks = properties.map(p => ({ name: p.name, href: `/buy/${p.slug}` }))
 
   return (
     <footer className="bg-slate-900 text-slate-400 border-t border-slate-800" id="global-footer">

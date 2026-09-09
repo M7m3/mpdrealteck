@@ -3,12 +3,17 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { PROPERTIES_DB } from '@/data/db'
 import ShortlistButton from '@/components/common/ShortlistButton'
 
-export default function PropertyAll() {
-  // Extract all 5 verified physical property holdings from data.js
-  const activeHoldings = PROPERTIES_DB.slice(0, 5)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type BuyAsset = Record<string, any>
+
+interface PropertyAllProps {
+  properties: BuyAsset[]
+}
+
+export default function PropertyAll({ properties }: PropertyAllProps) {
+  const activeHoldings = properties
 
   return (
     <section className="relative bg-slate-50 py-24 lg:py-32" id="brokerage-inventory">
@@ -17,6 +22,10 @@ export default function PropertyAll() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
+        {activeHoldings.length === 0 && (
+          <p className="py-16 text-center text-sm text-slate-500">No active listings at the moment — check back soon.</p>
+        )}
+
         {/* Dynamic, Alternating Layout Grid */}
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
           {activeHoldings.map((asset, index) => {

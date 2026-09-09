@@ -144,7 +144,7 @@ export default function ContactInterface() {
                   <input 
                     type="text" 
                     required
-                    placeholder="e.g., Mandeep Singh"
+                    placeholder="Your full name"
                     className="w-full rounded-lg border border-slate-200 px-4 py-3 text-sm outline-none transition-all focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
