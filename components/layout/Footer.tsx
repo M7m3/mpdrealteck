@@ -114,11 +114,26 @@ export default async function Footer() {
         </div>
 
         {/* Structural Horizontal Privacy Divider */}
-        <div className="mt-16 border-t border-slate-800 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <p className="text-xs text-slate-500 font-medium">
+        <div className="mt-16 border-t border-slate-800 pt-8 flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
+          <p className="order-2 text-xs text-slate-500 font-medium sm:order-1">
             &copy; {new Date().getFullYear()} MPD Realteck Infrastructure Group. All rights reserved.
           </p>
-          <div className="flex space-x-6 text-xs text-slate-500 font-mono">
+
+          {/* Technology Partner Credit */}
+          <div className="group order-1 flex items-center gap-3 rounded-full border border-slate-800 bg-slate-800/40 px-4 py-3 transition-colors duration-300 hover:border-slate-700 sm:order-2">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Technology Partner</span>
+            <div className="relative h-10 w-10 shrink-0">
+              <Image
+                src="/logo/techPartner.png"
+                alt="Genesis Machina"
+                fill
+                sizes="40px"
+                className="object-contain grayscale opacity-70 transition-all duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+              />
+            </div>
+          </div>
+
+          <div className="order-3 flex space-x-6 text-xs text-slate-500 font-mono">
             <Link href="/privacy" className="hover:text-slate-400 transition-colors">Privacy Protocol</Link>
             <Link href="/terms" className="hover:text-slate-400 transition-colors">Terms of Placement</Link>
           </div>
