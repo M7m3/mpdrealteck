@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { CORPORATE_LEASING_DB } from '@/data/corporateLeasing'
+import ShortlistButton from '@/components/common/ShortlistButton'
 
 export default function CorporateLeasing() {
   const [formData, setFormData] = useState({
@@ -58,6 +59,9 @@ export default function CorporateLeasing() {
                   </span>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-4 right-4">
+                  <ShortlistButton propertyId={asset.id} propertySource="corporate-leasing" />
+                </div>
               </div>
 
               <div className="flex flex-1 flex-col p-6 sm:p-8">

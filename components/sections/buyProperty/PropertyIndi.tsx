@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { PROPERTIES_DB } from '@/data/db'
+import ShortlistButton from '@/components/common/ShortlistButton'
 
 interface PropertyIndiProps {
   id: string
@@ -102,6 +103,9 @@ export default function PropertyIndi({ id }: PropertyIndiProps) {
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" />
+              <div className="absolute top-4 right-4">
+                <ShortlistButton propertyId={asset.id} propertySource="buy" />
+              </div>
             </div>
 
             {/* Geographical Site Identification Matrix */}

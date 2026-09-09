@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { PROPERTIES_DB } from '@/data/db'
+import ShortlistButton from '@/components/common/ShortlistButton'
 
 export default function PropertyAll() {
   // Extract all 5 verified physical property holdings from data.js
@@ -42,10 +43,11 @@ export default function PropertyAll() {
                     />
                     
                     {/* Absolute Overlays matching compliance registries */}
-                    <div className="absolute inset-x-3 top-3 flex items-center justify-between pointer-events-none">
-                      <span className="rounded bg-slate-900/90 border border-white/10 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md">
+                    <div className="absolute inset-x-3 top-3 flex items-center justify-between">
+                      <span className="pointer-events-none rounded bg-slate-900/90 border border-white/10 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-white backdrop-blur-md">
                         {asset.projectTimeline?.status || "Verified Real Estate"}
                       </span>
+                      <ShortlistButton propertyId={asset.id} propertySource="buy" />
                     </div>
 
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent pointer-events-none" />
