@@ -23,7 +23,7 @@ export default function PropertyAll({ properties }: PropertyAllProps) {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {activeHoldings.length === 0 && (
-          <p className="py-16 text-center text-sm text-slate-500">No active listings at the moment — check back soon.</p>
+          <p className="py-16 text-center text-sm text-slate-500">No active listings at the moment. Check back soon.</p>
         )}
 
         {/* Dynamic, Alternating Layout Grid */}

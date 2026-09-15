@@ -2,8 +2,10 @@ import React from 'react'
 import SellPropertySection from '@/components/sections/sellYourProperty/Sell'
 
 export const metadata = {
-  title: 'Sell Premium Property | Capital Portfolio Onboarding',
-  description: 'Submit your premium real estate asset credentials. Access our institutional investment network, localized zoning validations, and premier regional transaction agents.',
+  title: 'Sell Your Property in Agra & Noida',
+  description:
+    'List your residential, commercial, or industrial property with MPD Realteck. Get a free valuation and RERA-compliant closing support in Agra and Noida.',
+  alternates: { canonical: '/sell' },
 }
 
 export default function SellPage() {

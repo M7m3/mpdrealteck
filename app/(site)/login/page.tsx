@@ -2,8 +2,9 @@ import React, { Suspense } from 'react'
 import LoginFlow from '@/components/sections/auth/LoginFlow'
 
 export const metadata = {
-  title: 'Sign In | MPD Realteck',
+  title: 'Sign In',
   description: 'Sign in with your email to save shortlisted properties and manage your account.',
+  robots: { index: false, follow: true },
 }
 
 export default function LoginPage() {

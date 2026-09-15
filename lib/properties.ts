@@ -131,7 +131,7 @@ export function toLeasingAsset(property: Property) {
     status: property.status || '',
     priceRange: property.priceRange || '',
     reraStatus: property.reraCertified
-      ? `UP-RERA Certified${property.reraNumber ? ` — ${property.reraNumber}` : ''}`
+      ? `UP-RERA Certified${property.reraNumber ? ` · ${property.reraNumber}` : ''}`
       : (details.reraStatus as string) || 'Verification in Process',
   }
 }

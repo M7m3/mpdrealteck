@@ -2,8 +2,9 @@ import React from 'react'
 import ShortlistGrid from '@/components/sections/shortlist/ShortlistGrid'
 
 export const metadata = {
-  title: 'Your Shortlist | MPD Realteck',
+  title: 'Your Shortlist',
   description: 'Review the flats, homes, and commercial spaces you have shown interest in.',
+  robots: { index: false, follow: true },
 }
 
 export default function ShortlistPage() {

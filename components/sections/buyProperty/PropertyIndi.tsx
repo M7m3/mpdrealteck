@@ -65,7 +65,7 @@ export default function PropertyIndi({ asset }: PropertyIndiProps) {
               </div>
               <h1 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl text-white">{asset.name}</h1>
               <p className="mt-2 text-sm text-slate-400">
-                Developed by <span className="text-blue-400 font-semibold">{asset.developer}</span> {asset.legacyEstablished && `— Institutional Track Record since ${asset.legacyEstablished}`}
+                Developed by <span className="text-blue-400 font-semibold">{asset.developer}</span> {asset.legacyEstablished && `· Institutional Track Record since ${asset.legacyEstablished}`}
               </p>
             </div>
             
@@ -118,7 +118,7 @@ export default function PropertyIndi({ asset }: PropertyIndiProps) {
                 Geographical Context & Core Matrix
               </h3>
               <p className="mt-4 text-xs font-bold tracking-widest text-blue-600 uppercase font-mono">
-                {asset.location?.city}, {asset.location?.state} {asset.location?.postalCode && `— ${asset.location.postalCode}`}
+                {asset.location?.city}, {asset.location?.state} {asset.location?.postalCode && `· ${asset.location.postalCode}`}
               </p>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">
                 {asset.location?.geographicalContext}

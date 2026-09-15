@@ -2,8 +2,9 @@ import React from 'react'
 import AccountSettings from '@/components/sections/account/AccountSettings'
 
 export const metadata = {
-  title: 'Account Settings | MPD Realteck',
+  title: 'Account Settings',
   description: 'Manage your profile, view your shortlisted properties, and contact our advisory desk.',
+  robots: { index: false, follow: true },
 }
 
 export default function AccountPage() {

@@ -2,8 +2,10 @@ import React from 'react'
 import AboutSection from '@/components/sections/about/About'
 
 export const metadata = {
-  title: 'Our Heritage & Integrity | MPD Realteck',
-  description: 'Forty years of verified baseline legacy, uncompromised structural alignment, and firm corporate leadership under Madhusudan Tundon and Hardik Tundon.',
+  title: '40 Years of Real Estate Trust in Agra',
+  description:
+    'MPD Realteck has operated as a trusted real estate brokerage in Agra and Noida since 1986, led by Madhusudan and Hardik Tundon with clear-title integrity.',
+  alternates: { canonical: '/about' },
 }
 
 export default function AboutPage() {

@@ -1,8 +1,10 @@
 import React from 'react'
 
 export const metadata = {
-  title: 'Terms of Placement | MPD Realteck',
-  description: 'The terms governing engagement with MPD Realteck brokerage desks, listing submissions, and acquisition inquiries.',
+  title: 'Terms of Service',
+  description:
+    'The terms governing engagement with MPD Realteck brokerage desks in Agra and Noida, covering listing submissions and acquisition inquiries.',
+  alternates: { canonical: '/terms' },
 }
 
 const SECTIONS = [

@@ -3,8 +3,10 @@ import Invest from '@/components/sections/home/Invest'
 import MarketTrends from '@/components/sections/invest/MarketTrends'
 
 export const metadata = {
-  title: 'Invest in Real Estate | MPD Realteck',
-  description: 'Yield-driven real estate investment, managed end-to-end — vetted asset portfolios, optimized tax pipelines, and institutional-grade compliance.',
+  title: 'Land & Plot Investment in Agra, Noida & UP',
+  description:
+    'Invest in RERA-verified land, plots, and commercial assets across Agra, Noida, and emerging UP corridors with MPD Realteck\'s end-to-end investment desk.',
+  alternates: { canonical: '/invest' },
 }
 
 export default function InvestPage() {
@@ -24,7 +26,7 @@ export default function InvestPage() {
             Invest in Real Estate, Managed End-to-End
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-sm md:text-base text-slate-400 leading-relaxed">
-            We acquire, optimize, and manage commercial land and high-performing corporate assets — so your capital compounds without the operational friction.
+            We acquire, optimize, and manage commercial land and high-performing corporate assets, so your capital compounds without the operational friction.
           </p>
         </div>
       </div>

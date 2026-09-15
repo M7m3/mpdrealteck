@@ -2,8 +2,9 @@ import React, { Suspense } from 'react'
 import ForgotPasswordFlow from '@/components/sections/auth/ForgotPasswordFlow'
 
 export const metadata = {
-  title: 'Reset Password | MPD Realteck',
+  title: 'Reset Password',
   description: 'Reset your account password using a one-time email code.',
+  robots: { index: false, follow: true },
 }
 
 export default function ForgotPasswordPage() {

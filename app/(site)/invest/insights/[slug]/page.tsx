@@ -10,10 +10,14 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
   const post = await getPostBySlug(slug)
-  if (!post) return { title: 'Update Not Found | MPD Realteck' }
+  if (!post) return { title: 'Update Not Found' }
   return {
-    title: `${post.title} | MPD Realteck Market Trends`,
-    description: post.excerpt || undefined,
+    title: post.title,
+    description: post.excerpt || `Market trends and real estate insight from MPD Realteck: ${post.title}.`,
+    alternates: { canonical: `/invest/insights/${post.slug}` },
+    openGraph: post.images?.[0]
+      ? { type: 'article', images: [{ url: post.images[0], width: 1200, height: 630, alt: post.title }] }
+      : { type: 'article' },
   }
 }
 

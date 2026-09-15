@@ -1,14 +1,16 @@
 import React from 'react'
 
 export const metadata = {
-  title: 'Privacy Protocol | MPD Realteck',
-  description: 'How MPD Realteck collects, uses, and safeguards information shared through our brokerage desks and digital channels.',
+  title: 'Privacy Policy',
+  description:
+    'How MPD Realteck collects, uses, and safeguards information shared through our brokerage desks and digital channels in Agra and Noida.',
+  alternates: { canonical: '/privacy' },
 }
 
 const SECTIONS = [
   {
     title: 'Information We Collect',
-    body: 'When you submit an inquiry, valuation request, or listing intake form, we collect the details you provide directly — including your name, contact information, property details, and stated preferences.',
+    body: 'When you submit an inquiry, valuation request, or listing intake form, we collect the details you provide directly, including your name, contact information, property details, and stated preferences.',
   },
   {
     title: 'How We Use Your Information',

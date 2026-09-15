@@ -3,8 +3,10 @@ import CorporateLeasing from '@/components/sections/corporateLeasing/CorporateLe
 import { getProperties, toLeasingAsset } from '@/lib/properties'
 
 export const metadata = {
-  title: 'Corporate Leasing Desk | MPD Realteck',
-  description: 'Grade-A office space and premium commercial units available for corporate leasing, including One FNG in Noida and Ganga Ratan Square in Agra.',
+  title: 'Corporate Office Leasing in Noida & Agra',
+  description:
+    'Lease Grade-A office and commercial space in Noida and Agra with MPD Realteck, including One FNG and Ganga Ratan Square. Verified corporate leasing inventory.',
+  alternates: { canonical: '/corporate-leasing' },
 }
 
 export default async function CorporateLeasingPage() {

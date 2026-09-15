@@ -2,8 +2,10 @@ import React from 'react'
 import ContactInterfaceSection from '@/components/sections/contact/ContactInterface'
 
 export const metadata = {
-  title: 'Contact Advisory Group | Institutional Real Estate Placement',
-  description: 'Connect directly with our senior corporate brokerage desks. Schedule asset briefings at our Shastripuram or Sanjay Place offices in Agra.',
+  title: 'Contact Our Real Estate Advisors in Agra',
+  description:
+    "Connect with MPD Realteck's brokerage desks in Agra for property acquisition, leasing, and consulting. Visit our Shastripuram or Sanjay Place offices.",
+  alternates: { canonical: '/contact' },
 }
 
 export default function ContactPage() {

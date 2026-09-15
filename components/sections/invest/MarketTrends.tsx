@@ -75,14 +75,14 @@ export default function MarketTrends() {
               Everyday Real Estate Market Insights
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600">
-              Fresh market commentary, pricing movements, and investment insight — published as it happens.
+              Fresh market commentary, pricing movements, and investment insight, published as it happens.
             </p>
           </div>
 
           <div className="w-full max-w-sm shrink-0 rounded-xl border border-slate-200 bg-slate-50 p-5">
             {subscribed ? (
               <p className="text-sm font-semibold text-emerald-600">
-                You&apos;re subscribed — we&apos;ll email you when a new update goes live.
+                You&apos;re subscribed. We&apos;ll email you when a new update goes live.
               </p>
             ) : (
               <form onSubmit={handleSubscribe} className="space-y-3">
@@ -115,7 +115,7 @@ export default function MarketTrends() {
         {loading ? (
           <p className="py-16 text-center text-sm text-slate-500">Loading updates…</p>
         ) : posts.length === 0 ? (
-          <p className="py-16 text-center text-sm text-slate-500">No market updates published yet — check back soon.</p>
+          <p className="py-16 text-center text-sm text-slate-500">No market updates published yet. Check back soon.</p>
         ) : (
           <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => (

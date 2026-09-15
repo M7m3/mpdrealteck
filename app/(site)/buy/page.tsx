@@ -3,8 +3,10 @@ import PropertyAll from '@/components/sections/buyProperty/PropertyAll'
 import { getProperties, toBuyAsset } from '@/lib/properties'
 
 export const metadata = {
-  title: 'Direct Placement Brokerage Listings | MPD Realteck',
-  description: 'Examine clear-title commercial site allocations, independent plots, and high-rise vertical holdings managed under firm regulatory guidelines.',
+  title: 'Land & Plots for Sale in Agra & Noida',
+  description:
+    'Browse verified, clear-title plots and commercial land for sale in Agra and Noida. RERA-checked listings, direct from MPD Realteck\'s brokerage desk.',
+  alternates: { canonical: '/buy' },
 }
 
 export default async function BuyInventoryPage() {

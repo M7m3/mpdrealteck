@@ -160,7 +160,7 @@ export default function AccountSettings() {
       <div className="rounded-xl border border-slate-200/60 bg-white p-6 shadow-sm sm:p-8">
         <h2 className="text-lg font-bold tracking-tight text-slate-900">Contact Us Regarding Our Services</h2>
         <p className="mt-1 text-sm text-slate-500">
-          Send a message directly to our team — it goes straight to our advisory desk.
+          Send a message directly to our team. It goes straight to our advisory desk.
         </p>
 
         {messageSent && (

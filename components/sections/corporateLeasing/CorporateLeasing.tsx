@@ -177,7 +177,7 @@ export default function CorporateLeasing({ properties }: CorporateLeasingProps) 
               Reach Out for Corporate Leasing
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-600">
-              Tell us your space and timeline requirements — our leasing desk will follow up with floor plans, availability, and commercial terms.
+              Tell us your space and timeline requirements. Our leasing desk will follow up with floor plans, availability, and commercial terms.
             </p>
           </div>
 

@@ -154,7 +154,7 @@ export default function PropertyReviews({ propertyId, propertySource }: { proper
               ))}
             </ul>
           ) : (
-            <p className="mt-4 text-sm text-slate-500">No reviews yet — be the first to share your experience.</p>
+            <p className="mt-4 text-sm text-slate-500">No reviews yet. Be the first to share your experience.</p>
           )}
 
           <div className="mt-6 border-t border-slate-100 pt-6">

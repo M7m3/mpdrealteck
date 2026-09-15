@@ -45,7 +45,7 @@ export default function AboutSection() {
                 <span className="text-xs font-bold font-mono text-blue-400 bg-slate-800 px-2 py-1 rounded">PERMANENCE</span>
                 <h4 className="mt-3 text-base font-bold text-white tracking-tight">Zero Advisory Posturing</h4>
                 <p className="mt-2 text-xs leading-relaxed text-slate-400">
-                  We are market principles and operators. We do not offer passing speculations—we defend clear, uncompromised real transactions.
+                  We are market principles and operators. We do not offer passing speculations; we defend clear, uncompromised real transactions.
                 </p>
               </div>
             </div>

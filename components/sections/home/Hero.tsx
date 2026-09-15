@@ -86,7 +86,7 @@ export default function Hero() {
             </h1>
 
             <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-300 lg:text-lg">
-              Four decades of direct brokerage across Agra, Vrindavan, Noida, and beyond. Clear-title land, corporate leasing, and RERA-certified residential inventory — sourced and verified before it ever reaches you.
+              Four decades of direct brokerage across Agra, Vrindavan, Noida, and beyond. Clear-title land, corporate leasing, and RERA-certified residential inventory, sourced and verified before it ever reaches you.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
