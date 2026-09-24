@@ -54,12 +54,15 @@ export default async function Footer() {
           {/* Quick Hub Navigation */}
           <div className="lg:col-span-2">
             <h3 className="text-xs font-bold uppercase tracking-widest text-white font-mono">
-              Corporate Desk
+              Explore
             </h3>
             <ul role="list" className="mt-4 space-y-3">
               {[
                 { name: 'Corporate Profile', href: '/about' },
                 { name: 'Asset Catalog', href: '/buy' },
+                { name: 'MPD Construction', href: '/construction' },
+                { name: 'Interior Designing', href: '/interior-design' },
+                { name: 'Corporate Real Estate', href: '/corporate-real-estate' },
                 { name: 'Due Diligence', href: '/due-diligence' },
                 { name: 'Consulting & Advisory', href: '/consulting' },
                 { name: 'Acquisition Inquiry', href: '/contact' },

@@ -7,9 +7,9 @@ import MobileTabBar from '@/components/layout/MobileTabBar'
 import AppProviders from '@/components/providers/AppProviders'
 
 const SITE_URL = 'https://www.mpdrealteck.in'
-const DEFAULT_TITLE = 'Real Estate Consultants in Agra & Noida | MPD Realteck'
+const DEFAULT_TITLE = 'Real Estate Services Across India | MPD Realteck'
 const DEFAULT_DESCRIPTION =
-  'MPD Realteck is a 40-year real estate brokerage offering corporate land leasing, plot & land investment, property due diligence, and real estate consulting across Agra, Noida, Vrindavan, and emerging UP growth corridors.'
+  'MPD Realteck is a 40-year real estate group offering corporate leasing, land investment, construction, interior design, due diligence, and consulting across India.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -19,15 +19,15 @@ export const metadata: Metadata = {
   },
   description: DEFAULT_DESCRIPTION,
   keywords: [
-    'corporate leasing Agra',
-    'commercial space for lease Noida',
-    'land investment Agra',
-    'plot investment Noida',
-    'real estate due diligence Agra',
-    'property title verification Noida',
-    'real estate consultant Agra',
-    'real estate advisory Noida',
-    'RERA verified plots Agra',
+    'real estate services India',
+    'corporate leasing Agra Noida',
+    'land and plot investment India',
+    'MPD Construction',
+    'interior design services India',
+    'corporate real estate services India',
+    'real estate due diligence India',
+    'real estate consultant India',
+    'RERA verified plots',
   ],
   authors: [{ name: 'MPD Realteck' }],
   alternates: { canonical: '/' },

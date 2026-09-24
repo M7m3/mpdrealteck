@@ -2,9 +2,9 @@ import React from 'react'
 import SellPropertySection from '@/components/sections/sellYourProperty/Sell'
 
 export const metadata = {
-  title: 'Sell Your Property in Agra & Noida',
+  title: 'Sell Your Property Across India',
   description:
-    'List your residential, commercial, or industrial property with MPD Realteck. Get a free valuation and RERA-compliant closing support in Agra and Noida.',
+    'List your residential, commercial, or industrial property with MPD Realteck. Get a free valuation and RERA-compliant closing support, anywhere in India.',
   alternates: { canonical: '/sell' },
 }
 

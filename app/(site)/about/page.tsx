@@ -2,9 +2,9 @@ import React from 'react'
 import AboutSection from '@/components/sections/about/About'
 
 export const metadata = {
-  title: '40 Years of Real Estate Trust in Agra',
+  title: '40 Years of Real Estate Trust',
   description:
-    'MPD Realteck has operated as a trusted real estate brokerage in Agra and Noida since 1986, led by Madhusudan and Hardik Tundon with clear-title integrity.',
+    'Since 1986, MPD Realteck has built real estate trust under Madhusudan and Hardik Tundon, now serving clients with end-to-end services across India.',
   alternates: { canonical: '/about' },
 }
 

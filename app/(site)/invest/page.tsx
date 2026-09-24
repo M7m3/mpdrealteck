@@ -3,9 +3,9 @@ import Invest from '@/components/sections/home/Invest'
 import MarketTrends from '@/components/sections/invest/MarketTrends'
 
 export const metadata = {
-  title: 'Land & Plot Investment in Agra, Noida & UP',
+  title: 'Land & Plot Investment Across India',
   description:
-    'Invest in RERA-verified land, plots, and commercial assets across Agra, Noida, and emerging UP corridors with MPD Realteck\'s end-to-end investment desk.',
+    "Invest in RERA-verified land, plots, and commercial assets across India with MPD Realteck's end-to-end investment desk.",
   alternates: { canonical: '/invest' },
 }
 

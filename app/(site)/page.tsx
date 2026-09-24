@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   // Next.js does not apply the root layout's title template to a page.tsx
   // in the same route segment as that layout, so the home page spells out
   // the full "<page> | MPD Realteck" title explicitly.
-  title: 'Corporate Leasing & Land Investment in Agra | MPD Realteck',
+  title: 'End-to-End Real Estate Services in India | MPD Realteck',
   description:
-    'MPD Realteck offers corporate land leasing, RERA-verified plot investment, due diligence, and real estate consulting across Agra, Noida & Vrindavan.',
+    'MPD Realteck offers corporate leasing, land investment, construction, interior design, due diligence, and consulting, end to end, across India.',
   alternates: { canonical: '/' },
 }
 
