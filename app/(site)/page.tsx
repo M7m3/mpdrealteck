@@ -4,6 +4,7 @@ import Cities from '@/components/sections/home/Cities'
 import FeaturedProperties from '@/components/sections/home/FeaturedProperties'
 import Hero from '@/components/sections/home/Hero'
 import Invest from '@/components/sections/home/Invest'
+import Services from '@/components/sections/home/Services'
 import { getProperties, toBuyAsset } from '@/lib/properties'
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export default async function Home() {
   return (
     <main className="min-h-screen bg-slate-50">
       <Hero />
+      <Services />
       <Cities/>
       <Invest/>
       <FeaturedProperties properties={featuredAssets} />
