@@ -105,7 +105,7 @@ export default async function Footer() {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-xs text-slate-500 font-mono uppercase">Desk 2:</span>
-                  <a href="tel:+918218707339" className="font-semibold text-slate-300 hover:text-white transition-colors font-mono">+91 82187 07339</a>
+                  <a href="tel:+919084990284" className="font-semibold text-slate-300 hover:text-white transition-colors font-mono">+91 90849 90284</a>
                 </div>
               </li>
             </ul>

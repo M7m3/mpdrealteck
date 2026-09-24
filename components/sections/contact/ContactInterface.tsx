@@ -60,14 +60,14 @@ export default function ContactInterface() {
                   <span className="text-xs font-mono font-medium text-slate-400">Primary Desk</span>
                 </a>
                 
-                <a href="tel:+918218707339" className="group flex items-center justify-between py-2 border-b border-slate-100 last:border-0">
+                <a href="tel:+919084990284" className="group flex items-center justify-between py-2 border-b border-slate-100 last:border-0">
                   <div className="flex items-center gap-3">
                     <div className="h-9 w-9 bg-blue-50 rounded-lg text-blue-600 flex items-center justify-center transition-colors group-hover:bg-blue-600 group-hover:text-white">
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-1.514 2.018a14.991 14.991 0 0 1-6.505-6.505l2.017-1.514c.362-.272.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                       </svg>
                     </div>
-                    <span className="text-base font-semibold text-slate-800 tracking-tight group-hover:text-blue-600 transition-colors">+91 82187 07339</span>
+                    <span className="text-base font-semibold text-slate-800 tracking-tight group-hover:text-blue-600 transition-colors">+91 90849 90284</span>
                   </div>
                   <span className="text-xs font-mono font-medium text-slate-400">Secondary Desk</span>
                 </a>

@@ -3,16 +3,21 @@ import Link from 'next/link'
 import { prisma } from '@/lib/prisma'
 
 export default async function AdminOverviewPage() {
-  const [propertyCount, reviewCount, shortlistCount, blogCount, subscriberCount] = await Promise.all([
-    prisma.property.count(),
-    prisma.review.count(),
-    prisma.shortlist.count(),
-    prisma.blogPost.count(),
-    prisma.notificationSubscriber.count({ where: { active: true } }),
-  ])
+  const [propertyCount, userCount, loggedInUserCount, reviewCount, shortlistCount, blogCount, subscriberCount] =
+    await Promise.all([
+      prisma.property.count(),
+      prisma.user.count(),
+      prisma.user.count({ where: { sessions: { some: {} } } }),
+      prisma.review.count(),
+      prisma.shortlist.count(),
+      prisma.blogPost.count(),
+      prisma.notificationSubscriber.count({ where: { active: true } }),
+    ])
 
   const cards = [
     { label: 'Properties', value: propertyCount, href: '/mpd-88/dashboard/properties' },
+    { label: 'Registered Users', value: userCount, href: '/mpd-88/dashboard/users' },
+    { label: 'Users Logged In', value: loggedInUserCount, href: '/mpd-88/dashboard/users' },
     { label: 'Customer Reviews', value: reviewCount, href: '/mpd-88/dashboard/reviews' },
     { label: 'Wishlisted Items', value: shortlistCount, href: '/mpd-88/dashboard/wishlist' },
     { label: 'Blog Posts', value: blogCount, href: '/mpd-88/dashboard/blog' },

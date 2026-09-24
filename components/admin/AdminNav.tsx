@@ -7,6 +7,7 @@ import { usePathname, useRouter } from 'next/navigation'
 const LINKS = [
   { label: 'Overview', href: '/mpd-88/dashboard' },
   { label: 'Properties', href: '/mpd-88/dashboard/properties' },
+  { label: 'Users', href: '/mpd-88/dashboard/users' },
   { label: 'Reviews', href: '/mpd-88/dashboard/reviews' },
   { label: 'Wishlist', href: '/mpd-88/dashboard/wishlist' },
   { label: 'Market Trends Blog', href: '/mpd-88/dashboard/blog' },

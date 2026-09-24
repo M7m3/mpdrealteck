@@ -61,7 +61,7 @@ const ORGANIZATION_JSON_LD = {
   logo: `${SITE_URL}/logo/logo-nobg.png`,
   image: `${SITE_URL}/commonImages/hero4.webp`,
   description: DEFAULT_DESCRIPTION,
-  telephone: ['+91-70558-48887', '+91-82187-07339'],
+  telephone: ['+91-70558-48887', '+91-90849-90284'],
   areaServed: ['Agra', 'Noida', 'Vrindavan', 'Dholera', 'Mumbai', 'Goa', 'Ayodhya'],
   address: [
     {
