@@ -59,14 +59,11 @@ export default async function Footer() {
             <ul role="list" className="mt-4 space-y-3">
               {[
                 { name: 'Corporate Profile', href: '/about' },
-                { name: 'Asset Catalog', href: '/buy' },
-                { name: 'MPD Construction', href: '/construction' },
-                { name: 'Interior Designing', href: '/interior-design' },
-                { name: 'Corporate Real Estate', href: '/corporate-real-estate' },
-                { name: 'Due Diligence', href: '/due-diligence' },
-                { name: 'Consulting & Advisory', href: '/consulting' },
-                { name: 'Acquisition Inquiry', href: '/contact' },
-                { name: 'Sell Property Portal', href: '/sell' }
+                { name: 'Buy & Sell Property', href: '/buy' },
+                { name: 'Corporate Leasing', href: '/corporate-leasing' },
+                { name: 'Invest in Real Estate', href: '/invest' },
+                { name: 'All Services', href: '/services' },
+                { name: 'Contact Us', href: '/contact' },
               ].map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-sm hover:text-white transition-colors duration-200">
