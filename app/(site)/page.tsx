@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import CallToAction from '@/components/sections/home/CallToAction'
-import Cities from '@/components/sections/home/Cities'
 import FeaturedProperties from '@/components/sections/home/FeaturedProperties'
 import Hero from '@/components/sections/home/Hero'
 import Invest from '@/components/sections/home/Invest'
@@ -25,7 +24,6 @@ export default async function Home() {
     <main className="min-h-screen bg-slate-50">
       <Hero />
       <Services />
-      <Cities/>
       <Invest/>
       <FeaturedProperties properties={featuredAssets} />
       <CallToAction/>

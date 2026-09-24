@@ -50,14 +50,14 @@ const SERVICES = [
     description: 'Title search, encumbrance checks, and RERA compliance verification before you commit capital.',
     image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e',
     alt: 'Architect and consultant reviewing property blueprints for due diligence',
-    href: '/contact',
+    href: '/due-diligence',
   },
   {
     name: 'Real Estate Consulting & Advisory',
     description: 'Investment strategy, acquisition planning, and end-to-end advisory across every stage of a deal.',
     image: 'https://images.unsplash.com/photo-1526948531399-320e7e40f0ca',
     alt: 'Real estate consultant shaking hands with a client after an advisory meeting',
-    href: '/contact',
+    href: '/consulting',
   },
 ]
 

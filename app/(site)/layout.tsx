@@ -62,7 +62,7 @@ const ORGANIZATION_JSON_LD = {
   image: `${SITE_URL}/commonImages/hero4.webp`,
   description: DEFAULT_DESCRIPTION,
   telephone: ['+91-70558-48887', '+91-90849-90284'],
-  areaServed: ['Agra', 'Noida', 'Vrindavan', 'Dholera', 'Mumbai', 'Goa', 'Ayodhya'],
+  areaServed: { '@type': 'Country', name: 'India' },
   address: [
     {
       '@type': 'PostalAddress',

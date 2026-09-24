@@ -60,6 +60,8 @@ export default async function Footer() {
               {[
                 { name: 'Corporate Profile', href: '/about' },
                 { name: 'Asset Catalog', href: '/buy' },
+                { name: 'Due Diligence', href: '/due-diligence' },
+                { name: 'Consulting & Advisory', href: '/consulting' },
                 { name: 'Acquisition Inquiry', href: '/contact' },
                 { name: 'Sell Property Portal', href: '/sell' }
               ].map((link) => (
