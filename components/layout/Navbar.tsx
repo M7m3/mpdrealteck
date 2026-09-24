@@ -113,14 +113,10 @@ export default function Navbar() {
                   </Link>
                 </>
               ) : (
-                <Link
-                  href="/login"
-                  aria-label="Log In"
-                  className="inline-flex items-center justify-center rounded-lg p-2 text-slate-600 hover:bg-slate-50 hover:text-slate-900 focus:outline-none"
-                >
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l3 3m0 0-3 3m3-3H3" />
-                  </svg>
+                <Link href="/login">
+                  <button className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition-all duration-200 hover:bg-slate-50 hover:text-slate-900">
+                    Log In
+                  </button>
                 </Link>
               )}
             </div>
