@@ -70,5 +70,5 @@ export const SERVICES: ServiceEntry[] = [
   },
 ]
 
-/** Services shown in the nav's Services dropdown/menu: everything except Buy & Sell, which already has its own top-level nav entry. */
-export const NAV_SERVICES: ServiceEntry[] = SERVICES.filter((s) => s.href !== '/buy')
+/** Services shown in the nav's Services dropdown/menu: everything except Buy & Sell and Corporate Leasing, which already have their own top-level nav entries. */
+export const NAV_SERVICES: ServiceEntry[] = SERVICES.filter((s) => s.href !== '/buy' && s.href !== '/corporate-leasing')

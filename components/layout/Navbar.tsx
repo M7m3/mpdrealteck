@@ -10,6 +10,7 @@ const NAV_LINKS_BEFORE = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Buy & Sell', href: '/buy' },
+  { label: 'Corporate Leasing', href: '/corporate-leasing' },
 ]
 
 const NAV_LINKS_AFTER = [
